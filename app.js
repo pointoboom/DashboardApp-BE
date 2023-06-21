@@ -55,7 +55,7 @@ async function init() {
     try {
       const data = req.body
       const postId = req.params.id
-      if (data.postId && postId) {
+      if (data.text && postId) {
         const result = await pool.query(
           `insert into comments(post_id,comment,created_at) values ($1,$2,$3) returning *`,
           [postId, data.text, new Date()]
