@@ -6,7 +6,7 @@ import { createServer } from "http";
 import { Server } from "socket.io";
 import { pool } from "./db.js";
 import { getAllPost } from "./controlers/post.controller.js";
-import { error } from "console";
+
 async function init() {
   dotenv.config();
   const app = express();
@@ -26,7 +26,7 @@ async function init() {
       await getAllPost(io)
       return res.status(200)
     } catch (error) {
-      return res.status(404).json({ error })
+      return res.status(404).json({ "error": error })
     }
 
   });
@@ -47,7 +47,7 @@ async function init() {
       }
 
     } catch (error) {
-      return res.status(404).json({ error })
+      return res.status(404).json({ "error": error })
     }
 
   })
@@ -69,7 +69,7 @@ async function init() {
       }
 
     } catch (error) {
-      return res.status(404).json({ error })
+      return res.status(404).json({ "error": error })
     }
   })
   io.on('connection', client => {
