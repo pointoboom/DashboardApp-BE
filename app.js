@@ -17,14 +17,16 @@ async function init() {
   const server = createServer(app)
   const io = new Server(server, {
     cors: {
-      origin: 'http://localhost:3000',
+      origin: 'http://13.229.133.88:3000',
       methods: ['GET', 'POST'],
     },
   });
   app.get("/", async (req, res) => {
     try {
       await getAllPost(io)
-      return res.status(200)
+      return res.status(200).json({
+        success: "Success"
+      })
     } catch (error) {
       return res.status(404).json({ "error": error })
     }
