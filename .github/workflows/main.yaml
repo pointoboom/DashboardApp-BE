@@ -45,5 +45,5 @@ jobs:
             docker pull 065538148774.dkr.ecr.ap-southeast-1.amazonaws.com/dashboard:latest
             docker stop backend
             docker rm backend
-            docker run --net=backend -p 4000:4000 -d --name backend 065538148774.dkr.ecr.ap-southeast-1.amazonaws.com/dashboard:latest
+            docker run --net=frontend -p 4000:4000 -d --name backend 065538148774.dkr.ecr.ap-southeast-1.amazonaws.com/dashboard:latest
             # Additional commands or configuration as needed

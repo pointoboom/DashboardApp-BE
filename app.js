@@ -17,7 +17,7 @@ async function init() {
   const server = createServer(app)
   const io = new Server(server, {
     cors: {
-      origin: 'http://13.229.133.88:3000',
+      origin: 'http://frontend:3000',
       methods: ['GET', 'POST'],
     },
   });
